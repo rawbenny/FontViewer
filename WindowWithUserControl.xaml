@@ -1,0 +1,29 @@
+﻿<Window x:Class="FontViewer.WindowWithUserControl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:FontViewer"
+        Title="Teach Yourself WPF: Font Viewer"
+        Height="480"
+        Width="640">
+    <DockPanel Margin="8">
+        <Border DockPanel.Dock="Top"
+                CornerRadius="6"
+                BorderThickness="1"
+                BorderBrush="Gray"
+                Background="LightGray"
+                Padding="8"
+                Margin="0 0 0 8">
+            <TextBlock FontSize="14"
+                       TextWrapping="Wrap">
+            Select a font to view from the list below.  
+            You can change the text by typing in the region at the bottom.
+            </TextBlock>
+        </Border>
+        <ListBox x:Name="FontList"
+                 DockPanel.Dock="Left"
+                 ItemsSource="{x:Static Fonts.SystemFontFamilies}"
+                 Width="160" />
+        <local:TextPreviewControl DataContext="{Binding ElementName=FontList}" />
+
+    </DockPanel>
+</Window>
